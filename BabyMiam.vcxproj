@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\agouveia\Desktop\Nouveau dossier\Projet 4 - Prog BN C++\SDL2-devel-2.24.2-VC\SDL2-2.24.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\agouveia\Desktop\Nouveau dossier\Projet 4 - Prog BN C++\SDL2-devel-2.24.2-VC\SDL2-2.24.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\agouveia\Desktop\Nouveau dossier\Projet 4 - Prog BN C++\SDL2-devel-2.24.2-VC\SDL2-2.24.2\include;C:\Users\Suric\Desktop\Nouveau dossier (2)\SDL2-2.24.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\agouveia\Desktop\Nouveau dossier\Projet 4 - Prog BN C++\SDL2-devel-2.24.2-VC\SDL2-2.24.2\lib\x64;C:\Users\Suric\Desktop\Nouveau dossier (2)\SDL2-2.24.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -135,16 +135,16 @@
     <ClCompile Include="bottle.cpp" />
     <ClCompile Include="click.cpp" />
     <ClCompile Include="Intake.cpp" />
-    <ClCompile Include="MainSDLWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shopping.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bottle.h" />
     <ClInclude Include="click.h" />
     <ClInclude Include="Intake.h" />
-    <ClInclude Include="MainSDLWindow.hpp" />
     <ClInclude Include="Shopping.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

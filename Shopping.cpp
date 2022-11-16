@@ -34,14 +34,15 @@ void Shop::CleanList()
 
 void Shop::Main() {
 	Shop::PrintList();
+	char answer;
 	cout << "Avez vous fait les courses ? (reponse : C)"<< endl;
 	cout << "Et est-ce que vous voulez rajouter des articles a votre liste ?(reponse : A)"<< endl;
-	cin >> Prop;
-	if (Prop == "A")
+	cin >> answer;
+	if (answer == 'A')
 	{
 		Shop::AddItem();
 	}
-	if (Prop == "C")
+	if (answer == 'C')
 	{
 		Shop::CleanList();
 	};
