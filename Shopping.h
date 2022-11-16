@@ -9,8 +9,11 @@ class Shop
 public:
 	void PrintList();
 	void AddItem();
-	vector<const char*> ItemList = {"aled", "osekour"};
+	void CleanList();
+	void Main();
 
 private:
-
+	vector<const char*> ItemList = { "aled", "osekour" };
+	string Prop;
+	const char* Item;
 };

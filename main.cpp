@@ -30,7 +30,7 @@ int main(void) {
 	{
 		exit(EXIT_FAILURE);
 	}
-	shop.PrintList();
+	shop.Main();
 
 	while (!quit)
 	{

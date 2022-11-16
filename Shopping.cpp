@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +6,8 @@
 
 using namespace std;
 
-void Shop::PrintList() {
+void Shop::PrintList() 
+{
 	cout << "Voici la liste de courses :" << endl;
 	for (const char* a : ItemList)
 	{
@@ -15,6 +15,34 @@ void Shop::PrintList() {
 	}
 }
 
-void Shop::AddItem() {
+void Shop::AddItem() 
+{
+	Prop = "Test";
+	while (Prop.empty())
+	{
+		cout << "Quelle article voulez vous ajouter ?(Entree si vous avez tout mis)";
+		cin >> Prop;
+		Item = Prop.c_str();
+		ItemList.push_back(Item);
+	}
+}
 
+void Shop::CleanList() 
+{
+	ItemList.clear();
+}
+
+void Shop::Main() {
+	Shop::PrintList();
+	cout << "Avez vous fait les courses ? (reponse : C)"<< endl;
+	cout << "Et est-ce que vous voulez rajouter des articles a votre liste ?(reponse : A)"<< endl;
+	cin >> Prop;
+	if (Prop == "A")
+	{
+		Shop::AddItem();
+	}
+	if (Prop == "C")
+	{
+		Shop::CleanList();
+	};
 }
