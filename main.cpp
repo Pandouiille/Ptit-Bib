@@ -14,34 +14,47 @@
 #define WIDTHGAME 540
 #define HEIGHTWINDOW 630
 
+SDL_Window* fenetre;
+SDL_Renderer* renderer;
+
 using namespace std;
 
-int main(void) {
-
-	/*Click clik;*/
+int main(int argc, char* argv[])
+{
+	/*Click clik;
 	Register intake;
 	Shop shop;
+	shop.Main();*/
 
-	SDL_Event event;
-	bool quit = false;
-	MainSDLWindow* sdlwin = new MainSDLWindow;
+    SDL_Window* fenetre;  // Déclaration de la fenêtre
 
-	if (sdlwin->Init("BabyMiam", WIDTHGAME, HEIGHTWINDOW) == EXIT_FAILURE)
-	{
-		exit(EXIT_FAILURE);
-	}
-	shop.Main();
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)  // initialisation de la SDL
+    {
+        printf("Erreur d'initialisation de la SDL : %s", SDL_GetError());
+        return EXIT_FAILURE;
+    }
 
-	while (!quit)
-	{
-		SDL_WaitEvent(&event);
+    fenetre = SDL_CreateWindow("Une fenetre SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTHGAME, HEIGHTWINDOW, SDL_WINDOW_RESIZABLE);  // Création de la fenêtre
 
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			quit = true;
-			break;
-		}
-		//clik.EventManager();
-	}
+    if (fenetre == NULL)  //gestion des erreurs
+    {
+        printf("Erreur lors de la creation d'une fenetre : %s", SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
+    if (renderer == NULL)//gestion des erreurs
+    {
+        printf("Erreur lors de la creation d'un renderer : %s", SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
+    SDL_Delay(3000);  //pause de 3 secondes
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(fenetre);
+    SDL_Quit();  //on quitte la SDL
+    return 0;
 }
+
+
+	
