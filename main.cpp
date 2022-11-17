@@ -1,55 +1,89 @@
+/*This source code copyrighted by Lazy Foo' Productions (2004-2022)
+and may not be redistributed without written permission.*/
 
-#include <iostream>
+//Using SDL, SDL_image, standard IO, math, and strings
 #include <SDL.h>
 #include <stdio.h>
+#include <string>
+#include <cmath>
 #include <stdlib.h>
-
-#undef main
+#include <iostream>
+#include <SDL_ttf.h>
 
 #include "click.h"
 #include "Intake.h"
+#include "text.h"
 #include "Shopping.h"
-#include "window.h"
-#include "Shopping.h"
-
-
-#define WINDOWSIZE 600
-
-SDL_Window* fenetre;
-SDL_Renderer* renderer;
+#include "Menu.h"
+#include "utilities.h"
 
 using namespace std;
 
-int main(void)
+//Screen dimension constants
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
+
+int FPS = 60;
+
+
+int main(int argc, char* args[])
 {
-    Shop shop;
-    /*MainSDLWindow window;
-    window.init("Ptit Bib'", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWSIZE, WINDOWSIZE, 0);
+	utilities utils;
 
-	Click clik;
-	Register intake;
-	Shop shop;
-	shop.Main();
+	//Main loop flag
+	bool quit = false;
 
-    SDL_SetRenderDrawColor(window.getRenderer(), 0, 0, 0, SDL_ALPHA_OPAQUE);
-    SDL_RenderClear(window.getRenderer());
-    SDL_SetRenderDrawColor(window.getRenderer(), 255, 255, 255, SDL_ALPHA_OPAQUE);
-    window.update();
+	//The window we'll be rendering to
+	SDL_Window* window = NULL;
+	SDL_Renderer* renderer = NULL;
 
-    // Get the next event
-    SDL_Event event;
-    if (SDL_PollEvent(&event))
-    {
-        if (event.type == SDL_QUIT)
-        {
-            window.clean();
-        }
-    }
-    SDL_Delay(3000); */
-    shop.Main();
+	//The surface contained by the window
+	SDL_Surface* screenSurface = NULL;
 
-    return 0;
+	//Initialize SDL
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	{
+		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+	}
+	else
+	{
+		//Create window
+		window = SDL_CreateWindow("Le ptit bib", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		if (window == NULL)
+		{
+			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+		}
+
+		else
+		{
+			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+			if (renderer == NULL)
+			{
+				printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
+			}
+
+			//Clear screen
+			SDL_SetRenderDrawColor(renderer, 0xFF00, 0xFF00, 0xFF00, 0xFF00);
+			SDL_RenderClear(renderer);
+
+			//Update screen
+			SDL_UpdateWindowSurface(window);
+
+		}
+	}
+	Click clik(renderer);
+
+	clik.createButton([]() {cout << "ZIZI" << endl; }, 0, 0, 128, 128);
+	clik.createButton([]() {cout << "CULCUL" << endl; }, 256, 256, 128, 128);
+	clik.createButton([]() {cout << "fesses" << endl; }, 128, 128, 64, 64);
+
+	//While application is running
+	while (clik.running == true)
+	{
+		unsigned int frame = SDL_GetTicks() + FPS;
+		utils.SDL_Limit_FPS(frame, FPS);
+		clik.EventManager();
+		clik.render();
+	}
+	return 0;
 }
-
-
-	

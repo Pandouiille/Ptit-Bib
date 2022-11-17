@@ -27,10 +27,19 @@
     <ClCompile Include="Intake.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="text.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
     <ClCompile Include="Shopping.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
+    <ClCompile Include="Menu.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +53,19 @@
     <ClInclude Include="Intake.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
     <ClInclude Include="Shopping.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
-    <ClInclude Include="window.h">
+    <ClInclude Include="Menu.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

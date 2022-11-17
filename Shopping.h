@@ -13,7 +13,7 @@ public:
 	void Main();
 
 private:
-	vector<const char*> ItemList = { "aled", "osekour" };
+	vector<string> ItemList;
 	string Prop;
 	const char* Item;
 };

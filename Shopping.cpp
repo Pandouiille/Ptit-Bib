@@ -6,37 +6,44 @@
 
 using namespace std;
 
-void Shop::PrintList() 
+void Shop::PrintList()
 {
 	cout << "Voici la liste de courses :" << endl;
-	for (const char* a : ItemList)
+	for (auto v : ItemList)
 	{
-		cout << " - " << a <<"\n";
+		cout << " - " << v << "\n";
 	}
 }
 
-void Shop::AddItem() 
+void Shop::AddItem()
 {
-	Prop = "Test";
-	while (Prop.empty())
+	int a = 1;
+	string Prop;
+	while (a == 1)
 	{
-		cout << "Quelle article voulez vous ajouter ?(Entree si vous avez tout mis)";
+		cout << "Quelle article voulez vous ajouter ? (Entrer \"STOP\" pour quitter)" << endl;
 		cin >> Prop;
-		Item = Prop.c_str();
-		ItemList.push_back(Item);
+		ItemList.push_back(Prop);
+		if (Prop == "STOP") {
+			ItemList.pop_back();
+			break;
+		}
 	}
+	Shop::Main();
+
 }
 
-void Shop::CleanList() 
+void Shop::CleanList()
 {
 	ItemList.clear();
+	Shop::Main();
 }
 
 void Shop::Main() {
 	Shop::PrintList();
 	char answer;
-	cout << "Avez vous fait les courses ? (reponse : C)"<< endl;
-	cout << "Et est-ce que vous voulez rajouter des articles a votre liste ?(reponse : A)"<< endl;
+	cout << "Avez vous fait les courses ? (reponse : C)" << endl;
+	cout << "Et est-ce que vous voulez rajouter des articles a votre liste ?(reponse : A)" << endl;
 	cin >> answer;
 	if (answer == 'A')
 	{
@@ -45,5 +52,5 @@ void Shop::Main() {
 	if (answer == 'C')
 	{
 		Shop::CleanList();
-	};
+	}
 }

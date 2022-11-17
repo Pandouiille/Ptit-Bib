@@ -11,9 +11,14 @@ public:
 	void Add();
 	int Time();
 	void Print();
-	char* tm{};
+	int getTime();
 
 private:
 	string dose;
+	char* tm;
 	list < string > quantity;
+	int heure;
+	int heure_en_seconde;
+	int minute;
+	int seconde;
 };
